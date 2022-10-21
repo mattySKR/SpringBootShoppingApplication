@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/createProduct}" method="post" th:object="${product}">
+		<label>Product Name</label>&nbsp;<input type="text" th:field="*{productName}"/>
+		<p th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Product Name Error</p>
+		<label>Product Type</label>&nbsp;<input type="text" th:field="*{productType}"/>
+		<p th:if="${#fields.hasErrors('productType')}" th:errors="*{productType}">Product Type Error</p>
+		<label>Product Size</label>&nbsp;<input type="text" th:field="*{productSize}"/>
+		<input type="submit" value="Create Product"/>
+	</form>
+</body>
+</html>
